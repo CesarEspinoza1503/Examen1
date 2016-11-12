@@ -180,5 +180,3 @@ Matriz::~Matriz(){
 	delete[] tablero;
 	tablero = NULL;
 }
-
-
