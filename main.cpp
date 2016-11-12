@@ -12,6 +12,8 @@ int main(int argc, char const *argv[])
 	int SalirPrograma = 1;
 	Matriz* tablero = new Matriz();
 
+
+
 	do
 	{
 		cout<<"Examen 1 Laboratorio"<<endl<<"____________________"<<endl<<"Pseudo Ataxx"<<endl<<"____________________"<<endl;
@@ -63,6 +65,7 @@ int main(int argc, char const *argv[])
 			cout<<"Salirse del programa?(2)"<<endl;
 			cin>>SalirPrograma;
 		}
+		
 	} while (SalirPrograma!=2);
 	
 	return 0;
