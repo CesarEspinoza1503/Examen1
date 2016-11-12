@@ -20,6 +20,4 @@ public:
 	~Matriz();
 	
 };
-
-
 #endif
