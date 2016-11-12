@@ -74,15 +74,6 @@ bool Matriz::VerificarGane(){
 	return false;
 }
 
-void Matriz::borrarTablero(){
-	for (int i = 0; i < 11; ++i)
-	{
-		delete[] tablero[i];
-		tablero[i] = NULL;
-	}
-	delete[] tablero;
-	tablero = NULL;
-}
 
 bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 
@@ -182,6 +173,14 @@ bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 	}
 }
 
-
+Matriz::~Matriz(){
+	for (int i = 0; i < 11; ++i)
+	{
+		delete[] tablero[i];
+		tablero[i] = NULL;
+	}
+	delete[] tablero;
+	tablero = NULL;
+}
 
 
