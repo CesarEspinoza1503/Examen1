@@ -16,6 +16,7 @@ public:
 	bool VerificarGane();
 	bool Mover(int, int, int, int, char);
 	void Clonar();
+	void borrarTablero();
 	~Matriz();
 	
 };

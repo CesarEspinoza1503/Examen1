@@ -2,7 +2,7 @@
 
 Matriz::Matriz (){
 	tablero = new char*[11];
-	for (int i = 0; i < 11; ++i)
+	for (int i = 0; i < 12; ++i)
 	{
 		tablero[i] = new char[11];
 	}
@@ -58,21 +58,35 @@ bool Matriz::VerificarGane(){
 		if(contSharp==0 && contMas!=0){
 			cout<<"Ganaron los positivos"<<endl;
 			return true;
+			borrarTablero();
 		}
 		if(contSharp!=0 && contMas==0){
 			cout<<"Ganaron los hashtags"<<endl;
 			return true;
+			borrarTablero();
 		}
 		if(contMas==contSharp){
 			cout<<"Quedaron empatados"<<endl;
 			return true;
+			borrarTablero();
 		}
 	}
 	return false;
 }
 
+void Matriz::borrarTablero(){
+	for (int i = 0; i < 11; ++i)
+	{
+		delete[] tablero[i];
+		tablero[i] = NULL;
+	}
+	delete[] tablero;
+	tablero = NULL;
+}
+
 bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
-	if(X<0 || Y<0 || X>10 || Y>10){
+
+	if(X<0 || Y<0 || X>11 || Y>11){
 		cout<<"El valor esta out of bound"<<endl;
 		return false;
 	}else if(X>(xOriginal+2) || Y>(yOriginal+2)){
@@ -93,18 +107,35 @@ bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 				{
 					tablero[Y+1][X]='#';
 				}
-				if (tablero[Y-1][X]=='+' && (Y-1 < 0))
-				{
-					tablero[Y-1][X]='#';
+				//Diagonales CAMBIO
+				if((Y!=0) && tablero[Y-1][X-1]=='+' && (X-1 > 0)){
+					tablero[Y-1][X-1] = '#';
+				}
+				if(tablero[Y+1][X+1]=='+' && (X+1 < 10 && Y+1 < 11)){
+					tablero[Y+1][X+1] = '#';
+				}
+				if((Y!=0) && tablero[Y-1][X+1]=='+' && (X+1 > 11)){
+					tablero[Y-1][X+1] = '#';
+				}
+				if((Y+1<11) && tablero[Y+1][X-1]=='+' && (X-1 > 0)){
+					tablero[Y+1][X-1] = '#';
+				}
+				// DIAGONALES CAMBIO END
+				if(Y!=0){
+					if (tablero[Y-1][X]=='+' && (Y-1 < 0))
+					{
+						tablero[Y-1][X]='#';
+					}
 				}
 				if (tablero[Y][X+1]=='+' && (X+1 < 11))
 				{
 					tablero[Y][X+1]='#';
 				}
-				if (tablero[Y][X-1]=='+' && (X-1 < 0))
+				if (tablero[Y][X-1]=='+' && (X-1 > 0))
 				{
 					tablero[Y][X-1]='#';
 				}
+				return true;
 			}else{
 				return false;
 			}
@@ -115,9 +146,25 @@ bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 				{
 					tablero[Y+1][X]='+';
 				}
-				if (tablero[Y-1][X]=='#' && (Y-1 < 0))
-				{
-					tablero[Y-1][X]='+';
+				//Diagonales CAMBIO
+				if((Y!=0) && tablero[Y-1][X-1]=='#' && (X-1 > 0)){
+					tablero[Y-1][X-1] = '+';
+				}
+				if(tablero[Y+1][X+1]=='#' && (X+1 < 10 && Y+1 < 11)){
+					tablero[Y+1][X+1] = '+';
+				}
+				if((Y!=0) && tablero[Y-1][X+1]=='#' && (X+1 > 11)){
+					tablero[Y-1][X+1] = '+';
+				}
+				if((Y+1<11) && tablero[Y+1][X-1]=='#' && (X-1 > 0)){
+					tablero[Y+1][X-1] = '+';
+				}
+				// DIAGONALES CAMBIO END
+				if(Y!=0){
+					if (tablero[Y-1][X]=='#' && (Y-1 < 0))
+					{
+						tablero[Y-1][X]='+';
+					}
 				}
 				if (tablero[Y][X+1]=='#' && (X+1 < 11))
 				{
@@ -127,6 +174,7 @@ bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 				{
 					tablero[Y][X-1]='+';
 				}
+				return true;
 			}else{
 				return false;
 			}

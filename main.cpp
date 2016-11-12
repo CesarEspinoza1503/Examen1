@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
 
 	do
 	{
-		cout<<"			Examen 1 Laboratorio"<<endl<<"Pseudo Ataxx"<<endl;
+		cout<<"Examen 1 Laboratorio"<<endl<<"____________________"<<endl<<"Pseudo Ataxx"<<endl<<"____________________"<<endl;
 		cout<<"1)Empezar un Juego"<<endl<<"2)Salir"<<endl;
 		cin>>SalirPrograma;
 		if (SalirPrograma==1)
@@ -22,9 +22,10 @@ int main(int argc, char const *argv[])
 			tablero->imprimir();
 			do
 			{
-
+				tablero->VerificarGane();
 				while(turnPlayer==true){
 					Ficha = '+';
+					cout<<"Jugador 1"<<endl;
 					cout<<"Ingrese coordenada de la Ficha a mover ("<<Ficha<<") "<<endl<<"X: ";
 					cin>>xFicha;
 					cout<<"Y: ";
@@ -41,6 +42,7 @@ int main(int argc, char const *argv[])
 				}
 				while(turnPlayer==false){
 					Ficha = '#';
+					cout<<"Jugador 2"<<endl;
 					cout<<"Ingrese coordenada de la Ficha a mover ("<<Ficha<<") "<<endl<<"X: ";
 					cin>>xFicha;
 					cout<<"Y: ";
@@ -57,6 +59,8 @@ int main(int argc, char const *argv[])
 					
 				}
 			} while (Gane==false);
+			cout<<"Salirse del programa?(2)"<<endl;
+			cin>>SalirPrograma;
 		}
 	} while (SalirPrograma!=2);
 	
