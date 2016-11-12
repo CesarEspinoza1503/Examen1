@@ -7,7 +7,6 @@ Matriz::Matriz (){
 		tablero[i] = new char[11];
 	}
 
-
 	for (int i = 0; i < 11; ++i)
 	{
 		for (int j = 0; j < 11; ++j)
@@ -20,7 +19,6 @@ Matriz::Matriz (){
 	tablero[10][0]='+';
 	tablero[0][10]='+';
 }
-
 
 void Matriz::imprimir(){
 	for (int i = 0; i < 11; ++i)

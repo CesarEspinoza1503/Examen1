@@ -65,9 +65,5 @@ int main(int argc, char const *argv[])
 		}
 	} while (SalirPrograma!=2);
 	
-
 	return 0;
 }
-
-
-
