@@ -171,6 +171,8 @@ bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 	}
 }
 
+
+
 Matriz::~Matriz(){
 	for (int i = 0; i < 11; ++i)
 	{
