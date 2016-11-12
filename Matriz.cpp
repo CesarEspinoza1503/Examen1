@@ -180,8 +180,8 @@ bool Matriz::Mover(int X, int Y, int xOriginal, int yOriginal, char Player){
 			}
 		}
 	}
-
-
 }
+
+
 
 

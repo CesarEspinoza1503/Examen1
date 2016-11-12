@@ -59,6 +59,7 @@ int main(int argc, char const *argv[])
 					
 				}
 			} while (Gane==false);
+			delete[] tablero;
 			cout<<"Salirse del programa?(2)"<<endl;
 			cin>>SalirPrograma;
 		}
